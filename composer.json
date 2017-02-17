@@ -1,22 +1,17 @@
 {
-    "name": "ircmaxell/php-brain-fuck",
-    "description": "A brainfuck interpreter for PHP",
+    "name": "ryo-utsunomiya/php-fxxk",
+    "description": "An easy-customizable Brainfuck interpreter for PHP",
     "authors": [
         {
-            "name": "Anthony Ferrara",
-            "email": "me@ircmaxell.com",
+            "name": "Ryo Utsunomiya",
+            "email": "millionsnowliving+php-fxxk@gmail.com",
             "role": "Lead"
-        },
-        {
-            "name": "Emanuele Minotto",
-            "email": "minottoemanuele@gmail.com",
-            "role": "Contributor"
         }
     ],
-    "require": {
-
+    "require-dev": {
+        "phpunit/phpunit": "^5.7"
     },
     "autoload": {
-        "psr-0": { "BrainFuck": "lib/" }
+        "psr-4": { "BrainFuck\\": "lib/" }
     }
 }
