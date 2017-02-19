@@ -3,6 +3,13 @@ php-fxxk
 
 An easy-customizable Brainfuck interpreter for PHP.
 
+Install
+-------
+
+```
+composer require ryo-utsunomiya/php-fxxk
+```
+
 Usage
 -----
 
