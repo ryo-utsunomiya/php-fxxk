@@ -13,5 +13,6 @@
     },
     "autoload": {
         "psr-4": { "BrainFuck\\": "lib/BrainFuck/" }
-    }
+    },
+    "license": "MIT"
 }
