@@ -12,7 +12,9 @@ class Mapping
     public function __construct(array $mapping = [])
     {
         foreach ($mapping as $i => $arg) {
-            $this->mapping[$i] = $arg;
+            if (isset($this->mapping[$i])) {
+                $this->mapping[$i] = $arg;
+            }
         }
     }
     
