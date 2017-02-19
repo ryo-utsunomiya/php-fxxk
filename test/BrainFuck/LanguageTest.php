@@ -57,7 +57,7 @@ class LanguageTest extends \PHPUnit_Framework_TestCase
 
     public function testInstantiation()
     {
-        $language = new Language();
+        new Language();
     }
 
     /**
@@ -71,7 +71,7 @@ class LanguageTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException LogicException
+     * @expectedException \LogicException
      */
     public function testParseError()
     {
@@ -80,7 +80,7 @@ class LanguageTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException LogicException
+     * @expectedException \LogicException
      */
     public function testParseError2()
     {
@@ -88,4 +88,14 @@ class LanguageTest extends \PHPUnit_Framework_TestCase
         $language->run(']', array());
     }
 
+    public function testRunWithMapping()
+    {
+        $mapping = new Mapping(range(0, 7));
+        $helloWorld = <<<HW
+222222222260222222202222222222022202111137022402422222224422240224112222222222222224042224333333433333333402404
+HW;
+        $actual = Language::withMapping($mapping)->run($helloWorld);
+        $expected = [72, 101, 108, 108, 111, 32, 87, 111, 114, 108, 100, 33, 10];
+        $this->assertEquals($expected, $actual);
+    }
 }

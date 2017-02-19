@@ -12,6 +12,6 @@
         "phpunit/phpunit": "^5.7"
     },
     "autoload": {
-        "psr-4": { "BrainFuck\\": "lib/" }
+        "psr-4": { "BrainFuck\\": "lib/BrainFuck/" }
     }
 }
