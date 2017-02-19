@@ -20,7 +20,7 @@ class MappingTest extends \PHPUnit_Framework_TestCase
     public function testTranslateToBf($bf, $program)
     {
         $mapping = new Mapping(range(0, 7));
-        $this->assertSame($mapping->toBf($program), $bf);
+        $this->assertSame($mapping->toBrainfuck($program), $bf);
     }
 
     /**
@@ -29,7 +29,7 @@ class MappingTest extends \PHPUnit_Framework_TestCase
     public function testTranslateFromBf($bf, $program)
     {
         $mapping = new Mapping(range(0, 7));
-        $this->assertSame($mapping->fromBf($bf), $program);
+        $this->assertSame($mapping->fromBrainfuck($bf), $program);
     }
 
     /**

@@ -45,7 +45,7 @@ class Language
     private function translate($program)
     {
         if ($this->mapping instanceof Mapping) {
-            return $this->mapping->toBf($program);
+            return $this->mapping->toBrainfuck($program);
         } else {
             return $program;
         }

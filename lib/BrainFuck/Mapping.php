@@ -23,14 +23,14 @@ class Mapping
      */
     public function helloWorld()
     {
-        return $this->fromBf(self::DEFAULT_HELLO_WORLD);
+        return $this->fromBrainfuck(self::DEFAULT_HELLO_WORLD);
     }
 
     /**
      * @param string $program
      * @return string
      */
-    public function toBf($program)
+    public function toBrainfuck($program)
     {
         return str_replace(
             $this->mapping,
@@ -43,7 +43,7 @@ class Mapping
      * @param string $program
      * @return string
      */
-    public function fromBf($program)
+    public function fromBrainfuck($program)
     {
         return str_replace(
             self::DEFAULT_MAPPING,
