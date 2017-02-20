@@ -4,9 +4,9 @@ namespace BrainFuck;
 
 class Mapping
 {
-    const DEFAULT_MAPPING =  ['>', '<', '+', '-', '.', ',', '[', ']'];
+    const DEFAULT_MAPPING = ['>', '<', '+', '-', '.', ',', '[', ']'];
     const DEFAULT_HELLO_WORLD = '++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>.';
-    
+
     protected $mapping = self::DEFAULT_MAPPING;
 
     public function __construct(array $mapping = [])
@@ -17,7 +17,7 @@ class Mapping
             }
         }
     }
-    
+
     /**
      * @return string
      */
@@ -32,11 +32,11 @@ class Mapping
      */
     public function toBrainfuck($program)
     {
-        return str_replace(
-            $this->mapping,
-            self::DEFAULT_MAPPING,
-            $program
-        );
+        $bf = str_replace($this->mapping, self::DEFAULT_MAPPING, $program);
+        $bf = str_replace([' ', "\n", "\r"], '', $bf);
+        $bf = trim($bf);
+
+        return $bf;
     }
 
     /**
@@ -45,10 +45,6 @@ class Mapping
      */
     public function fromBrainfuck($program)
     {
-        return str_replace(
-            self::DEFAULT_MAPPING,
-            $this->mapping,
-            $program
-        );
+        return str_replace(self::DEFAULT_MAPPING, $this->mapping, $program);
     }
 }

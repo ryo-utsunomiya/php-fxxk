@@ -17,16 +17,28 @@ class MappingTest extends \PHPUnit_Framework_TestCase
     /**
      * @dataProvider provideTestProgram
      */
-    public function testTranslateToBf($bf, $program)
+    public function testTranslateToBrainfuck($bf, $program)
     {
         $mapping = new Mapping(range(0, 7));
         $this->assertSame($mapping->toBrainfuck($program), $bf);
     }
 
+    public function testTranslateToBrainfuckWithSpaces()
+    {
+        $mapping = new Mapping(['NXT', 'PRV', 'INC', 'DEC', 'PUT', 'GET', 'OPN', 'CLS']);
+        $this->assertSame(',+.', $mapping->toBrainfuck('GET INC PUT'));
+    }
+
+    public function testTranslateToBrainfuckWithNewLines()
+    {
+        $mapping = new Mapping(['NXT', 'PRV', 'INC', 'DEC', 'PUT', 'GET', 'OPN', 'CLS']);
+        $this->assertSame(',+.', $mapping->toBrainfuck("GET\r\nINC\r\nPUT"));
+    }
+
     /**
      * @dataProvider provideTestProgram
      */
-    public function testTranslateFromBf($bf, $program)
+    public function testTranslateFromBrainfuck($bf, $program)
     {
         $mapping = new Mapping(range(0, 7));
         $this->assertSame($mapping->fromBrainfuck($bf), $program);
